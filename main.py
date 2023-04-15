@@ -162,6 +162,7 @@
 # число – это масса соответствующего арбуза. Все числа натуральные и не превышают 30000.
 
 import random
+
 # 13. 1. Уставшие от необычно теплой зимы, жители решили
 # узнать, действительно ли это самая длинная оттепель за
 # всю историю наблюдений за погодой. Они обратились к синоптикам,
@@ -213,3 +214,61 @@ import random
 #
 #
 #     # number ** 0.5
+#
+# import random
+#
+# some_list = []
+# for _ in range(10):
+#     number = random.randint(1, 10)
+#     some_list.append(number)
+# print(some_list)
+#
+# print(some_list.count(7))
+#
+# print(7 in some_list)
+
+# a = [1, 2, 3]
+# b = ['1', '2', '3']
+# c = {}
+# for ind in range(0, len(a)):
+#     c[a[ind]] = b[ind]
+# print(c)
+
+# Дан список чисел. Определите, сколько в нем встречается различных чисел.
+
+# some_list = [int(input()) for i in range(5)]
+# some_set = set(some_list)
+# print(len(some_set))
+
+# Дана последовательность из N целых чисел и число K. Необходимо сдвинуть всю последовательность (сдвиг - циклический) на K элементов вправо, K – положительное число.
+#
+# some_list = [int(input()) for i in range(5)]
+# print(some_list)
+# k = int(input())
+# new_list = some_list[k-1:] + some_list[:k-1]
+# print(new_list)
+
+# Напишите программу для печати всех уникальных значений в словаре.
+
+some_list = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII": " S005 "}, {" V ": " S009 "},
+             {" VIII ": " S007 "}]
+# print(type(some_list))
+# print(some_list)
+new_set = set()
+for i in some_list:
+    # new_set.add(*i.values())
+    new_set.add(list(i.values())[0].strip())
+
+print(new_set)
+
+# # Дан массив, состоящий из целых чисел. Напишите программу, которая подсчитает количество элементов массива, больших предыдущего (элемента с предыдущим номером)
+#
+# import random
+#
+# some_list = [random.randint(0, 11) for _ in range(5)]
+# print(some_list)
+# count = 0
+# for i in range(1, len(some_list)):
+#     if some_list[i] > some_list[i - 1]:
+#         count += 1
+# print(count)

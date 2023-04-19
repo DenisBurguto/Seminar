@@ -35,7 +35,7 @@ def task2():
         if random_list.count(num) > max_count:
             max_count = random_list.count(num)
 
-    print("maximun quantity of one same element is ", max_count)
+    print("maximum quantity of one same element is ", max_count)
 
 
 task2()

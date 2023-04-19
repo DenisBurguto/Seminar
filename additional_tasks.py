@@ -38,7 +38,7 @@ def task2():
     print("maximum quantity of one same element is ", max_count)
 
 
-task2()
+#task2()
 
 
 # 3. Создайте список из случайных чисел.
@@ -46,11 +46,14 @@ task2()
 # a = [1, 2, 3] # Первый максимум == 3, второй == 2
 def task3():
     import random
-    random_list = [random.randint(-10, 10) for _ in range(10)]
+    random_list = [random.randint(-10, 100) for _ in range(10)]
     print(random_list)
 
+    first_max = max(random_list)
+    random_list.remove(first_max)
+    print("secod maximum in the list is", max(random_list))
 
-# task3()
+task3()
 
 
 # 4. Создайте список из случайных чисел.

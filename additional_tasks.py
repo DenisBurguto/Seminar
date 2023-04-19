@@ -1,6 +1,3 @@
-import random
-
-
 # Сложные задачи:
 # 1. Создайте список из случайных чисел.
 # Найдите номер его последнего локального максимума
@@ -51,17 +48,20 @@ def task3():
 
     first_max = max(random_list)
     random_list.remove(first_max)
-    print("secod maximum in the list is", max(random_list))
+    print("second maximum in the list is", max(random_list))
 
 
-task3()
+# task3()
 
 
 # 4. Создайте список из случайных чисел.
 # Найдите количество различных элементов в нем.
 def task4():
     import random
-    random_list = [random.randint(-10, 10) for _ in range(10)]
+    random_list = [random.randint(-10, 10) for _ in range(20)]
     print(random_list)
 
-# task4()
+    print("total quantity of different items in list  is", len(set(random_list)), "from", len(random_list))
+
+
+task4()

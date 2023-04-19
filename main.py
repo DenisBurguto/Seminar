@@ -279,84 +279,115 @@ import random
 # Пользователь вводит текст(строка). Словом считается последовательность непробельных символов идущих подряд,
 # слова разделены одним или большим числом пробелов или символами конца строки.Определите, сколько различных
 # слов содержится в этом тексте. без метода split()
-
-some_str = input()
-some_set = set()
-temp_word = ''
-for letter in some_str:
-    if letter != ' ':
-        temp_word += letter
-    else:
-        if temp_word:
-            some_set.add(temp_word)
-        temp_word = ''
-some_set.add(temp_word)
-print(some_set)
-
-
-some_str = "wertrtwerewrtewrtwrtwrewr4566464646456456456456456464wrewrw"
-import time
-start = time.perf_counter()
-for letter in set(some_str):
-    a = letter, some_str.count(letter)
-end = time.perf_counter()
-duration1 = end - start
-start = time.perf_counter()
-for letter in set(some_str):
-    amount = 0
-    for letter1 in some_str:
-        if letter == letter1:
-            amount += 1
-a = letter, amount
-end = time.perf_counter()
-duration2 = end - start
-print(duration2 / duration1)
-
-import random
-
-some_str = ''.join([chr(random.randint(32, 100)) for _ in range(10 ** 5)])
-
-import time
-start = time.perf_counter()
-for letter in set(some_str):
-    a = letter, some_str.count(letter)
-end = time.perf_counter()
-duration1 = end - start
-
-start = time.perf_counter()
-for letter in set(some_str):
-    amount = 0
-    for letter1 in some_str:
-        if letter == letter1:
-            amount += 1
-    a = letter, amount
-end = time.perf_counter()
-duration2 = end - start
+#
+# some_str = input()
+# some_set = set()
+# temp_word = ''
+# for letter in some_str:
+#     if letter != ' ':
+#         temp_word += letter
+#     else:
+#         if temp_word:
+#             some_set.add(temp_word)
+#         temp_word = ''
+# some_set.add(temp_word)
+# print(some_set)
+#
+# some_str = "wertrtwerewrtewrtwrtwrewr4566464646456456456456456464wrewrw"
+# import time
+#
+# start = time.perf_counter()
+# for letter in set(some_str):
+#     a = letter, some_str.count(letter)
+# end = time.perf_counter()
+# duration1 = end - start
+# start = time.perf_counter()
+# for letter in set(some_str):
+#     amount = 0
+#     for letter1 in some_str:
+#         if letter == letter1:
+#             amount += 1
+# a = letter, amount
+# end = time.perf_counter()
+# duration2 = end - start
 # print(duration2 / duration1)
+#
+# import random
+#
+# some_str = ''.join([chr(random.randint(32, 100)) for _ in range(10 ** 5)])
+#
+# import time
+#
+# start = time.perf_counter()
+# for letter in set(some_str):
+#     a = letter, some_str.count(letter)
+# end = time.perf_counter()
+# duration1 = end - start
+#
+# start = time.perf_counter()
+# for letter in set(some_str):
+#     amount = 0
+#     for letter1 in some_str:
+#         if letter == letter1:
+#             amount += 1
+#     a = letter, amount
+# end = time.perf_counter()
+# duration2 = end - start
+# # print(duration2 / duration1)
+#
+# start = time.perf_counter()
+# count = 0
+# lens = len(some_str)
+# while lens > 0:
+#     for i in range(0, lens):
+#         if some_str[0] == some_str[i]:
+#             count += 1
+#     lens -= count
+#     a = f'{some_str[0]} -> {count}'
+#     some_str = some_str.replace(some_str[0], '')
+#     count = 0
+# end = time.perf_counter()
+# duration3 = end - start
+#
+# start = time.perf_counter()
+# count_dict = {}  # a: 1
+# for letter in some_str:
+#     if letter not in count_dict:
+#         count_dict[letter] = 1
+#     else:
+#         count = count_dict[letter]
+#         count_dict[letter] = count + 1
+# end = time.perf_counter()
+# duration4 = end - start
+# print(duration1, duration2, duration3, duration4)
+#
 
-start = time.perf_counter()
-count = 0
-lens = len(some_str)
-while lens > 0:
-    for i in range(0, lens):
-        if some_str[0] == some_str[i]:
-            count += 1
-    lens -= count
-    a = f'{some_str[0]} -> {count}'
-    some_str = some_str.replace(some_str[0], '')
-    count = 0
-end = time.perf_counter()
-duration3 = end - start
+def merge_sort(nums):
+    if len(nums) > 1:
+        mid = len(nums) // 2
+        left = nums[:mid]
+        right = nums[mid:]
+        merge_sort(left)
+        merge_sort(right)
+        i = j = k = 0
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                nums[k] = left[i]
+                i += 1
+            else:
+                nums[k] = right[j]
+                j += 1
+            k += 1
+        while i < len(left):
+            nums[k] = left[i]
+            i += 1
+            k += 1
+        while j < len(right):
+            nums[k] = right[j]
+            j += 1
+            k += 1
 
 
-start = time.perf_counter()
-count_dict = {}  # a: 1
-for letter in some_str:
-    if letter not in count_dict:
-        count_dict[letter] = 1
-    else:
-        count = count_dict[letter]
-        count_dict[letter] = count + 1
-end = time.perf_counter()
-duration4 = end - start
-print(duration1, duration2, duration3, duration4)
+nums = [38, 27, 43, 3, 9, 82, 10]
+merge_sort(nums)
+print(nums)

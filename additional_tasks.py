@@ -8,20 +8,18 @@ import random
 
 def task1():
     import random
-    random_list = [random.randint(0, 100) for _ in range(10)]
+    random_list = [random.randint(-10, 10) for _ in range(10)]
+    print(random_list)
 
     local_max_ind = len(random_list) - 1
-    print(random_list)
     if random_list[-1] > random_list[-2]:
         print(local_max_ind)
     else:
         for i in range(len(random_list) - 2, 1, -1):
-               if random_list[i] > random_list[local_max_ind] and random_list[i] > random_list[i - 1]:
-               local_max_ind = i
-               print(i)
-               break
-           else:
-               if random_list[i] < random_list[local_max_ind]:
+            if random_list[i] > random_list[local_max_ind] and random_list[i] > random_list[i - 1]:
+                local_max_ind = i
+                print(f'last local maximum  is {random_list[i]} with index {i}')
+                break
 
 
 task1()

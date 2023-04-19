@@ -249,17 +249,17 @@ import random
 # print(new_list)
 
 # Напишите программу для печати всех уникальных значений в словаре.
-
-some_list = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII": " S005 "}, {" V ": " S009 "},
-             {" VIII ": " S007 "}]
-# print(type(some_list))
-# print(some_list)
-new_set = set()
-for i in some_list:
-    # new_set.add(*i.values())
-    new_set.add(list(i.values())[0].strip())
-
-print(new_set)
+#
+# some_list = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII": " S005 "}, {" V ": " S009 "},
+#              {" VIII ": " S007 "}]
+# # print(type(some_list))
+# # print(some_list)
+# new_set = set()
+# for i in some_list:
+#     # new_set.add(*i.values())
+#     new_set.add(list(i.values())[0].strip())
+#
+# print(new_set)
 
 # # Дан массив, состоящий из целых чисел. Напишите программу, которая подсчитает количество элементов массива, больших предыдущего (элемента с предыдущим номером)
 #
@@ -272,3 +272,91 @@ print(new_set)
 #     if some_list[i] > some_list[i - 1]:
 #         count += 1
 # print(count)
+
+# 25. Напишите программу, которая принимает на вход строку, и выводит кол-во повторов каждого из символов 1 раз.
+
+
+# Пользователь вводит текст(строка). Словом считается последовательность непробельных символов идущих подряд,
+# слова разделены одним или большим числом пробелов или символами конца строки.Определите, сколько различных
+# слов содержится в этом тексте. без метода split()
+
+some_str = input()
+some_set = set()
+temp_word = ''
+for letter in some_str:
+    if letter != ' ':
+        temp_word += letter
+    else:
+        if temp_word:
+            some_set.add(temp_word)
+        temp_word = ''
+some_set.add(temp_word)
+print(some_set)
+
+
+some_str = "wertrtwerewrtewrtwrtwrewr4566464646456456456456456464wrewrw"
+import time
+start = time.perf_counter()
+for letter in set(some_str):
+    a = letter, some_str.count(letter)
+end = time.perf_counter()
+duration1 = end - start
+start = time.perf_counter()
+for letter in set(some_str):
+    amount = 0
+    for letter1 in some_str:
+        if letter == letter1:
+            amount += 1
+a = letter, amount
+end = time.perf_counter()
+duration2 = end - start
+print(duration2 / duration1)
+
+import random
+
+some_str = ''.join([chr(random.randint(32, 100)) for _ in range(10 ** 5)])
+
+import time
+start = time.perf_counter()
+for letter in set(some_str):
+    a = letter, some_str.count(letter)
+end = time.perf_counter()
+duration1 = end - start
+
+start = time.perf_counter()
+for letter in set(some_str):
+    amount = 0
+    for letter1 in some_str:
+        if letter == letter1:
+            amount += 1
+    a = letter, amount
+end = time.perf_counter()
+duration2 = end - start
+# print(duration2 / duration1)
+
+start = time.perf_counter()
+count = 0
+lens = len(some_str)
+while lens > 0:
+    for i in range(0, lens):
+        if some_str[0] == some_str[i]:
+            count += 1
+    lens -= count
+    a = f'{some_str[0]} -> {count}'
+    some_str = some_str.replace(some_str[0], '')
+    count = 0
+end = time.perf_counter()
+duration3 = end - start
+
+
+start = time.perf_counter()
+count_dict = {}  # a: 1
+for letter in some_str:
+    if letter not in count_dict:
+        count_dict[letter] = 1
+    else:
+        count = count_dict[letter]
+        count_dict[letter] = count + 1
+end = time.perf_counter()
+duration4 = end - start
+print(duration1, duration2, duration3, duration4)

@@ -45,20 +45,20 @@
 #     1 2 3 4 5
 #     6
 #     -> 5
-# import random
-# n = int(input('Please enter N - total quantity of elements in list: '))
-# num_list = [random.randint(-10, 11) for _ in range(n)]
-# x = random.randint(-10, 11)
-# nearest = num_list[0]
-# print(num_list[0], end=' ')
-# for i in num_list[1:]:
-#     print(i, end=' ')
-#     if abs(nearest - x) > abs(i - x):
-#         nearest = i
-# print()
-# print('tested X:', x)
-# print('the closest element to X in our list is: ', nearest)
-#
+import random
+n = int(input('Please enter N - total quantity of elements in list: '))
+num_list = [random.randint(-10, 11) for _ in range(n)]
+x = random.randint(-10, 11)
+nearest = num_list[0]
+print(num_list[0], end=' ')
+for i in num_list[1:]:
+    print(i, end=' ')
+    if abs(nearest - x) > abs(i - x):
+        nearest = i
+print()
+print('tested X:', x)
+print('the closest element to X in our list is: ', nearest)
+
 
 
 # *Задача 20: * В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность.

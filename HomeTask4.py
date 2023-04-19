@@ -27,7 +27,8 @@ def task22():
     print(set(sorted(set_one | set_two)))
 
 
-task22()
+# task22()
+
 
 # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику. Она растёт на круглой грядке, причём кусты высажены только по окружности.
 # Таким образом, у каждого куста есть ровно два соседних. Всего на грядке растёт N кустов.
@@ -35,3 +36,22 @@ task22()
 # В этом фермерском хозяйстве внедрена система автоматического сбора черники. Эта система состоит из управляющего модуля и нескольких собирающих модулей.
 # Собирающий модуль за один заход, находясь непосредственно перед некоторым кустом, собирает ягоды с этого куста и с двух соседних с ним.
 # Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
+
+def task25():
+    import random
+    n = int(input('Please enter N - quantity of plants: '))
+    plant_dict = dict()
+    for i in range(1, n + 1):
+        plant_dict[i] = random.randint(0, 100)  # quantity of strawberries on each plant or take it from inputed list instead of random
+    print(plant_dict)
+    max_strawberries = plant_dict[1] + plant_dict[n] + plant_dict[2]
+    key = 1
+    for i in range(2, n):
+        if plant_dict[i] + plant_dict[i - 1] + plant_dict[i + 1] > max_strawberries:
+            max_strawberries = plant_dict[i] + plant_dict[i - 1] + plant_dict[i + 1]
+            key = i
+
+    print(f' max possible harvest in one operation is  {max_strawberries} strawberries, central plant is {key}')
+
+
+task25()

@@ -64,4 +64,31 @@ def task4():
     print("total quantity of different items in list  is", len(set(random_list)), "from", len(random_list))
 
 
-task4()
+# task4()
+
+# Задача 1.
+# Напишите функцию, которая переворачивает строку.
+
+def string_reverse(string):
+    new_str = str()
+    for i in range(len(string) - 1, -1, -1):
+        new_str += string[i]
+    return new_str
+
+
+s = input("initial string? :")
+print((string_reverse(s)))
+
+# Задача 2.
+# Даны два массива:
+# [1, 2, 3, 2, 0] и [5, 1, 2, 7, 3, 2]
+# Надо вернуть их пересечение
+# [1, 2, 2, 3] (порядок неважен)
+
+
+# Задача 3.
+# Sample Input
+# ["eat", "tea", "tan", "ate", "nat", "bat"
+# Sample Output
+# [ ["ate", "eat", "tea"], ["nat", "tan"], ["bat"] ]
+# Т.е. сгруппировать слова по "общим буквам".

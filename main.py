@@ -163,6 +163,7 @@
 
 import random
 
+
 # 13. 1. Уставшие от необычно теплой зимы, жители решили
 # узнать, действительно ли это самая длинная оттепель за
 # всю историю наблюдений за погодой. Они обратились к синоптикам,
@@ -362,32 +363,106 @@ import random
 # print(duration1, duration2, duration3, duration4)
 #
 
-def merge_sort(nums):
-    if len(nums) > 1:
-        mid = len(nums) // 2
-        left = nums[:mid]
-        right = nums[mid:]
-        merge_sort(left)
-        merge_sort(right)
-        i = j = k = 0
-        while i < len(left) and j < len(right):
-            if left[i] < right[j]:
-                nums[k] = left[i]
-                i += 1
-            else:
-                nums[k] = right[j]
-                j += 1
-            k += 1
-        while i < len(left):
-            nums[k] = left[i]
-            i += 1
-            k += 1
-        while j < len(right):
-            nums[k] = right[j]
-            j += 1
-            k += 1
+# def merge_sort(nums):
+#     if len(nums) > 1:
+#         mid = len(nums) // 2
+#         left = nums[:mid]
+#         right = nums[mid:]
+#         merge_sort(left)
+#         merge_sort(right)
+#         i = j = k = 0
+#         while i < len(left) and j < len(right):
+#             if left[i] < right[j]:
+#                 nums[k] = left[i]
+#                 i += 1
+#             else:
+#                 nums[k] = right[j]
+#                 j += 1
+#             k += 1
+#         while i < len(left):
+#             nums[k] = left[i]
+#             i += 1
+#             k += 1
+#         while j < len(right):
+#             nums[k] = right[j]
+#             j += 1
+#             k += 1
+#
+#
+# nums = [38, 27, 43, 3, 9, 82, 10]
+# merge_sort(nums)
+# print(nums)
+
+# 1) Последовательностью Фибоначчи называется последовательность чисел a0, a1, ..., an, ..., где
+# def fibonachi (n):
+#     if n == 1:
+#         return 0
+#     elif n == 2:
+#         return 1
+#     else:
+#         return fibonachi(n - 1) + fibonachi(n - 2)
+#
+#
+# number_N = int(input())
+# print(fibonachi(number_N))
+#
+# def fib(n):
+#     if n in (0, 1):
+#         return n
+#     return fib(n - 1) + fib(n - 2)
+#
+# print(fib(7))
+#
+#
+#
+#
+# # 2)Требуется найти N-е число Фибоначчи
+# # Хакер Василий получил доступ к классному журналу и хочет заменить все свои минимальные оценки
+# # на максимальные. Напишите программу, которая заменяет оценки Василия, но наоборот: все максимальные – на минимальные.
+# def replacement(some_list):
+#     min_item = min(some_list)
+#     max_item = max(some_list)
+#     for i in range(len(some_list)):
+#         if some_list[i] == max_item:
+#             some_list[i] = min_item
+#     return some_list
+#
+#
+# some_list = [random.randint(1, 6) for _ in range(5)]
+#
+# print(some_list)
+# print(replacement(some_list))
+#
+# some_list = [1, 4, 5, 2, 3, 9, 8, 11, 0]
+# flage = True
 
 
-nums = [38, 27, 43, 3, 9, 82, 10]
-merge_sort(nums)
-print(nums)
+some_list = [1, 2, 4, 3, 9, 8, 11, 0, 13]
+some_list.sort()
+result_list = []
+temp_list = []
+print(some_list)
+for i in range(0, len(some_list) - 1):
+    if some_list[i + 1] - some_list[i] == 1:
+        temp_list.append(some_list[i])
+    else:
+        temp_list.append(some_list[i])
+        result_list.append(temp_list)
+        temp_list = []
+if temp_list:
+    result_list.append(temp_list)
+
+if some_list[-1] - some_list[-2] == 1:
+    result_list[-1].append(some_list[-1])
+else:
+    result_list.append([some_list[-1]])
+
+print_list = []
+for i in result_list:
+    if len(i) > 1:
+        print_list.append(f'{i[0]}-{i[-1]}')
+    else:
+        print_list.append(i[0])
+print(*print_list, sep=',')
+
+

@@ -69,21 +69,45 @@ def task4():
 # Задача 1.
 # Напишите функцию, которая переворачивает строку.
 
-def string_reverse(string):
-    new_str = str()
-    for i in range(len(string) - 1, -1, -1):
-        new_str += string[i]
-    return new_str
-
-
-s = input("initial string? :")
-print((string_reverse(s)))
+# def string_reverse(string):
+#     new_str = str()
+#     for i in range(len(string) - 1, -1, -1):
+#         new_str += string[i]
+#     return new_str
+#
+#
+# s = input("initial string? :")
+# print((string_reverse(s)))
 
 # Задача 2.
 # Даны два массива:
 # [1, 2, 3, 2, 0] и [5, 1, 2, 7, 3, 2]
 # Надо вернуть их пересечение
 # [1, 2, 2, 3] (порядок неважен)
+#
+list1 = [1, 2, 3, 2, 0]
+list2 = [5, 1, 2, 7, 3, 2, 2]
+dict1 = dict()
+for el in list1:
+    dict1[el] = list1.count(el)
+
+result = []
+for el in list2:
+    if dict1.get(el) is not None and dict1.get(el) != 0:
+        result.append(el)
+        dict1[el] = dict1[el] - 1
+
+print(result)
+
+# list_out = []
+# for i in range(len(list1)):
+#     for j in range(len(list2)):
+#         if list1[i] == list2[j]:
+#             list_out.append(list1[i])
+#             list2.pop(j) #list2[j] = ''
+#             break
+# print(list_out)
+
 
 
 # Задача 3.
@@ -91,4 +115,66 @@ print((string_reverse(s)))
 # ["eat", "tea", "tan", "ate", "nat", "bat"
 # Sample Output
 # [ ["ate", "eat", "tea"], ["nat", "tan"], ["bat"] ]
-# Т.е. сгруппировать слова по "общим буквам".
+#
+#
+# list_out = []
+# list_in = ["eat", "tea", "tan", "ate", "nat", "bat"]
+# temp = 0
+# ind = 1
+# temp_ind = 1
+#
+# for i in range(len(list_in)):
+#     for j in range(ind, len(list_in)):
+#         if sorted(list_in[i]) == sorted(list_in[j]):
+#             temp = list_in[temp_ind]
+#             list_in[temp_ind] = list_in[j]
+#             list_in[j] = temp
+#             temp_ind += 1
+#             ind += 1
+# print(list_in)
+#
+# def group_words(words: List[str])
+#
+#     List[List[str]]:
+#
+#     groups = dict(list)
+#
+#     for word in words:  # O(n)
+#         key = sorted(word)
+#         groups[key].append(word)
+#
+#     return [sorted(words) for words in groups.values()]  # O(n*log(n))
+#
+#
+#
+#
+# print(list_out)
+#
+# test_dict = dict()
+# test_list = list()
+# value = 0
+# for el in list_in:
+#
+#     for i in el:
+#         test_dict[i] = value
+#         value += 1
+# for el in list_in:
+#     value = 0
+#     for i in el:
+#         value += test_dict[i]
+#     test_list.append(value)
+# print(test_list)
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#

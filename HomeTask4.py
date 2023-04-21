@@ -1,20 +1,8 @@
 # Даны два неупорядоченных набора целых чисел (может быть, с повторениями). Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
 # Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества. Затем пользователь вводит сами элементы множеств.
 def task22():
-    one = int(input('Please enter first set lens: '))
-    two = int(input('Please enter second set lens: '))
-    # list_one = []
-    # list_two = []
-    #
-    # for i in range(one):
-    #     list_one.append(int(input(f'enter {i + 1} element of first list: ')))
-    #
-    # for j in range(two):
-    #     list_two.append(int(input(f'enter {j + 1} element of second list: ')))
-    #
-    # set_out = sorted(set(list_one + list_two))
-    # print(set_out)
-    # print(type(set_out))
+    one = int(input('Please enter first set length: '))
+    two = int(input('Please enter second set length: '))
 
     set_one = set()
     set_two = set()
@@ -26,7 +14,7 @@ def task22():
 
     print(set(sorted(set_one | set_two)))
 
-    # task22()
+task22()
 
     # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику. Она растёт на круглой грядке, причём кусты высажены только по окружности.
     # Таким образом, у каждого куста есть ровно два соседних. Всего на грядке растёт N кустов.

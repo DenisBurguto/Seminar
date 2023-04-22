@@ -21,24 +21,24 @@ def power(a, b):
 # на выходе даст строку вида: A4B3C2XYZD4E3F3A6B28 И сгенерирует ошибку, если на вход пришла невалидная строка. Пояснения: Если символ встречается
 # 1 раз,он остается без изменений; Если символ повторяется более 1 раза ,к нему добавляется количество повторений
 
-def rlefunction(in_str):
+def rle_function(input_string):
     import string
     alph = string.ascii_uppercase  # we can create our own string with A-Z instead
     out_str = str()
     count = 1
-    for i in range(len(in_str) - 1):
-        if in_str[i] in alph:
-            if in_str[i] == in_str[i + 1]:
+    for i in range(len(input_string) - 1):
+        if input_string[i] in alph:
+            if input_string[i] == input_string[i + 1]:
                 count += 1
             else:
-                out_str += in_str[i]
+                out_str += input_string[i]
                 if count > 1:
                     out_str += str(count)
                     count = 1
         else:
             return 'invalid string input'
-    if in_str[-1] in alph:
-        out_str += in_str[-1]
+    if input_string[-1] in alph:
+        out_str += input_string[-1]
         if count > 1:
             out_str += str(count)
     else:
@@ -47,4 +47,4 @@ def rlefunction(in_str):
 
 
 in_str = "AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB"
-print(rlefunction(in_str))
+print(rle_function(in_str))

@@ -117,11 +117,12 @@ print(result)
 #
 
 list_in = ["eat", "tea", "tan", "ate", "nat", "bat", "cat", "tac"]
+
+
 def list_letters(input_list):
     temp_dict = dict()
-    for el in list_in:
-        temp_dict[el] = sorted(el)
-    temp = 0
+    for string in list_in:
+        temp_dict[string] = sorted(string)
     ind = 1
     temp_ind = 1
     for i in range(len(list_in)):
@@ -132,7 +133,6 @@ def list_letters(input_list):
                 list_in[j] = temp
                 temp_ind += 1
                 ind += 1
-
     ind = 0
     temp_list = []
     list_out = []
@@ -145,4 +145,6 @@ def list_letters(input_list):
             temp_list = [list_in[i]]
     list_out.append(temp_list)
     return list_out
+
+
 print(list_letters(list_in))

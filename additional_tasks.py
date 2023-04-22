@@ -109,72 +109,40 @@ print(result)
 # print(list_out)
 
 
-
 # Задача 3.
 # Sample Input
-# ["eat", "tea", "tan", "ate", "nat", "bat"
+# ["eat", "tea", "tan", "ate", "nat", "bat"]
 # Sample Output
 # [ ["ate", "eat", "tea"], ["nat", "tan"], ["bat"] ]
 #
-#
-# list_out = []
-# list_in = ["eat", "tea", "tan", "ate", "nat", "bat"]
-# temp = 0
-# ind = 1
-# temp_ind = 1
-#
-# for i in range(len(list_in)):
-#     for j in range(ind, len(list_in)):
-#         if sorted(list_in[i]) == sorted(list_in[j]):
-#             temp = list_in[temp_ind]
-#             list_in[temp_ind] = list_in[j]
-#             list_in[j] = temp
-#             temp_ind += 1
-#             ind += 1
-# print(list_in)
-#
-# def group_words(words: List[str])
-#
-#     List[List[str]]:
-#
-#     groups = dict(list)
-#
-#     for word in words:  # O(n)
-#         key = sorted(word)
-#         groups[key].append(word)
-#
-#     return [sorted(words) for words in groups.values()]  # O(n*log(n))
-#
-#
-#
-#
-# print(list_out)
-#
-# test_dict = dict()
-# test_list = list()
-# value = 0
-# for el in list_in:
-#
-#     for i in el:
-#         test_dict[i] = value
-#         value += 1
-# for el in list_in:
-#     value = 0
-#     for i in el:
-#         value += test_dict[i]
-#     test_list.append(value)
-# print(test_list)
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+
+list_in = ["eat", "tea", "tan", "ate", "nat", "bat", "cat", "tac"]
+def list_letters(input_list):
+    temp_dict = dict()
+    for el in list_in:
+        temp_dict[el] = sorted(el)
+    temp = 0
+    ind = 1
+    temp_ind = 1
+    for i in range(len(list_in)):
+        for j in range(ind, len(list_in)):
+            if sorted(list_in[i]) == temp_dict[list_in[j]]:
+                temp = list_in[temp_ind]
+                list_in[temp_ind] = list_in[j]
+                list_in[j] = temp
+                temp_ind += 1
+                ind += 1
+
+    ind = 0
+    temp_list = []
+    list_out = []
+    for i in range(len(list_in)):
+        if sorted(list_in[i]) == temp_dict[list_in[ind]]:
+            temp_list.append(list_in[i])
+        else:
+            list_out.append(temp_list)
+            ind = i
+            temp_list = [list_in[i]]
+    list_out.append(temp_list)
+    return list_out
+print(list_letters(list_in))

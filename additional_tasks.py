@@ -125,7 +125,7 @@ def list_letters(input_list):
         temp_dict[string] = sorted(string)
     ind = 1
     temp_ind = 1
-    for i in range(len(list_in)):
+    for i in range(len(list_in)): #grouping words with same letters
         for j in range(ind, len(list_in)):
             if sorted(list_in[i]) == temp_dict[list_in[j]]:
                 temp = list_in[temp_ind]
@@ -136,7 +136,7 @@ def list_letters(input_list):
     ind = 0
     temp_list = []
     list_out = []
-    for i in range(len(list_in)):
+    for i in range(len(list_in)): #formatting output in internal lists
         if sorted(list_in[i]) == temp_dict[list_in[ind]]:
             temp_list.append(list_in[i])
         else:

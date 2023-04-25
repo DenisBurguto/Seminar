@@ -118,6 +118,22 @@ print(result)
 
 list_in = ["eat", "tea", "tan", "ate", "nat", "bat", "cat", "tac"]
 
+sample_input = ["eat", "bat", "tea", "tan", "ate", "nat"]
+
+x = dict()
+
+for elem in sample_input:
+    sorted_el = ''.join(sorted(elem))
+    if sorted_el in x:
+        x[sorted_el].append(elem)
+        print(x)
+    else:
+        x[sorted_el] = [elem]
+        print(x)
+
+print(list(x.values()))
+
+print('eat' in x)
 
 def list_letters(input_list):
     temp_dict = dict()

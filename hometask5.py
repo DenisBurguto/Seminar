@@ -17,7 +17,7 @@ def power(a, b):
 
 # Задача 28: https://www.dropbox.com/s/7n18ccc3dgxf8u9/workbook.pdf?dl=0 - задача 6
 
-# Данастрока(возможно,пустая),состоящаяизбукв A-Z:AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB Нужнонаписать функцию RLE, которая
+# Дана строка(возможно,пустая),состоящаяизбукв A-Z:AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB Нужнонаписать функцию RLE, которая
 # на выходе даст строку вида: A4B3C2XYZD4E3F3A6B28 И сгенерирует ошибку, если на вход пришла невалидная строка. Пояснения: Если символ встречается
 # 1 раз,он остается без изменений; Если символ повторяется более 1 раза ,к нему добавляется количество повторений
 

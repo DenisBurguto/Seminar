@@ -437,32 +437,54 @@ import random
 # flage = True
 
 
-some_list = [1, 2, 4, 3, 9, 8, 11, 0, 13]
-some_list.sort()
-result_list = []
-temp_list = []
-print(some_list)
-for i in range(0, len(some_list) - 1):
-    if some_list[i + 1] - some_list[i] == 1:
-        temp_list.append(some_list[i])
+# определить простое число или нет рекурсией
+def simleornot(num, temp=None):
+    if temp == None:
+        temp = num ** 0.5
+    while temp >= 2:
+        if num % temp == 0:
+            return False
+        else:
+            return simleornot(num, temp - 1)
     else:
-        temp_list.append(some_list[i])
-        result_list.append(temp_list)
-        temp_list = []
-if temp_list:
-    result_list.append(temp_list)
+        return True
 
-if some_list[-1] - some_list[-2] == 1:
-    result_list[-1].append(some_list[-1])
+
+print(simleornot(7))
+
+
+def prime(n, d=2):
+    if d * d >= n:
+        # print('prime number')
+        return True
+    elif n == 2:
+        return True
+    elif n % d == 0:
+        # print('not prime')
+        return False
+    else:
+        # print('prime')
+        return prime(n, d + 1)
+
+
+print(prime(57))
+
+
+# палиндром или нет рекурсией
+#
+def palindrome(str):
+    if len(str) < 1:
+        return True
+    else:
+        if str[0] == str[-1]:
+            return palindrome(str[1:-1])
+        else:
+            return False
+
+
+some_str = "абба"
+
+if palindrome(some_str):
+    print("Данная строка палиндром!")
 else:
-    result_list.append([some_list[-1]])
-
-print_list = []
-for i in result_list:
-    if len(i) > 1:
-        print_list.append(f'{i[0]}-{i[-1]}')
-    else:
-        print_list.append(i[0])
-print(*print_list, sep=',')
-
-
+    print("Данная строка не палиндром!")

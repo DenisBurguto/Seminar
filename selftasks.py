@@ -53,6 +53,20 @@ def pallindrom_check(s):
         return False
     return pallindrom_check(s[1:-1])
 
-print(pallindrom_check('a rer a'))
+
+# print(pallindrom_check('a rer a'))
 
 
+# простое ли число рекурсией
+
+def simple_or_not(num, div=None):
+    if div is None:
+        div = int(num ** 0.5)
+    if div < 2:
+        return True
+    if num % div == 0:
+        return False
+    return simple_or_not(num, div - 1)
+
+
+print(simple_or_not(6))

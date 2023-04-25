@@ -722,3 +722,16 @@ Sample Input:
 +71234567890 +71234567854 +61234576890 +52134567890 +21235777890 +21234567110 +71232267890
 Sample Output:
 ('+2', ['+21235777890', '+21234567110']) ('+5', ['+52134567890']) ('+6', ['+61234576890']) ('+7', ['+71234567890', '+71234567854', '+71232267890'])
+
+def compress_recursive(string):
+    if len(string) == 0:
+        return []
+    elif len(string) == 1:
+        return [(string, 1)]
+    else:
+        compressed = compress_recursive(string[1:])
+        if string[0] == compressed[0][0]:
+            compressed[0] = (string[0], compressed[0][1] + 1)
+        else:
+            compressed.insert(0, (string[0], 1))
+        return compressed

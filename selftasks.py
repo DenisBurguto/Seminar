@@ -80,13 +80,13 @@ def infected_ref():
         a = input(f"please input string to test for ref with index {num}:  ")
         i = 0
         j = 0
-        while i < len(a) and j < 5:
+        while i < len(a) and j < len(test_string):
             if a[i] == test_string[j]:
                 i += 1
                 j += 1
             else:
                 i += 1
-        if j == 5:
+        if j == len(test_string)+1:
             out_string += str(num) + " "
     print(f"the indexes of infected refrigerators: {out_string}")
 

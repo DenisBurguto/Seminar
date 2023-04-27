@@ -108,6 +108,28 @@ print(result)
 #             break
 # print(list_out)
 
+def array_crossing(list1, list2):
+
+    if len(list1) > len(list2):
+        max_len = len(list1)
+    else:
+        max_len = len(list2)
+    s_list1 = sorted(list1)
+    s_list2 = sorted(list2)
+    out_list =[]
+    ind = 0
+    while s_list1[ind] != s_list2[ind]:
+        ind +=1
+
+
+
+
+
+
+
+list1 = [1, 2, 3, 2, 0]
+list2 = [5, 1, 2, 7, 3, 2]
+
 
 # Задача 3.
 # Sample Input

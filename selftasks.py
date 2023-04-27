@@ -70,3 +70,16 @@ def simple_or_not(num, div=None):
 
 
 print(simple_or_not(6))
+
+def  infected_ref():
+    n = int(input('total quantity of refrigerators? '))
+    out_string = ""
+    test_string = "anton"
+    for num in range(n):
+        a = input(f"please input string tto test for ref index {num}:  ")
+        for el in a:
+
+
+
+
+

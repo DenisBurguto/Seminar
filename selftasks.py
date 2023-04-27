@@ -71,15 +71,24 @@ def simple_or_not(num, div=None):
 
 print(simple_or_not(6))
 
-def  infected_ref():
+
+def infected_ref():
     n = int(input('total quantity of refrigerators? '))
     out_string = ""
     test_string = "anton"
     for num in range(n):
-        a = input(f"please input string tto test for ref index {num}:  ")
-        for el in a:
+        a = input(f"please input string to test for ref with index {num}:  ")
+        i = 0
+        j = 0
+        while i < len(a) and j < 5:
+            if a[i] == test_string[j]:
+                i += 1
+                j += 1
+            else:
+                i += 1
+        if j == 5:
+            out_string += str(num) + " "
+    print(f"the indexes of infected refrigerators: {out_string}")
 
 
-
-
-
+infected_ref()

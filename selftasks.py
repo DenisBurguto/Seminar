@@ -69,7 +69,7 @@ def simple_or_not(num, div=None):
     return simple_or_not(num, div - 1)
 
 
-print(simple_or_not(6))
+# print(simple_or_not(6))
 
 
 def infected_ref():
@@ -86,9 +86,30 @@ def infected_ref():
                 j += 1
             else:
                 i += 1
-        if j == len(test_string)+1:
+        if j == len(test_string) + 1:
             out_string += str(num) + " "
     print(f"the indexes of infected refrigerators: {out_string}")
 
 
-infected_ref()
+# infected_ref()
+
+# task43
+# Дан список чисел. Посчитайте, сколько в нем пар элементов, равных друг другу.
+# Считается, что любые два элемента, равные друг другу образуют одну пару, которую необходимо посчитать.
+# Вводится список чисел. Все числа списка находятся на разных строках.
+# Ввод:    Вывод:
+# 1 2 3 2 3    2
+
+def task43():
+    import random
+    test_list = [random.randint(0, 10) for i in range(0, 10)]
+    print(test_list)
+    work_list = sorted(test_list)
+    pairs = 0
+    for ind in range(1, len(work_list)):
+        if work_list[ind - 1] == work_list[ind]:
+            pairs += 1
+    print(pairs)
+
+
+# task43()

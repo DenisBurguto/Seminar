@@ -58,10 +58,7 @@ def dic_phones(str_in):
 
     for el in list_in:
         if el[:2] in d.keys():
-            print(d[el[:2]])
-            temp = d[el[:2]]
-            temp.append(el)
-            d[el[:2]] = temp
+            d[el[:2]].append(el)
         else:
             d[el[:2]] = [el]
 

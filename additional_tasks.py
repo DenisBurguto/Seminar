@@ -155,34 +155,6 @@ for elem in sample_input:
 
 print(list(x.values()))
 
-print('eat' in x)
-
-def list_letters(input_list):
-    temp_dict = dict()
-    for string in list_in:
-        temp_dict[string] = sorted(string)
-    ind = 1
-    temp_ind = 1
-    for i in range(len(list_in)): #grouping words with same letters
-        for j in range(ind, len(list_in)):
-            if sorted(list_in[i]) == temp_dict[list_in[j]]:
-                temp = list_in[temp_ind]
-                list_in[temp_ind] = list_in[j]
-                list_in[j] = temp
-                temp_ind += 1
-                ind += 1
-    ind = 0
-    temp_list = []
-    list_out = []
-    for i in range(len(list_in)): #formatting output in internal lists
-        if sorted(list_in[i]) == temp_dict[list_in[ind]]:
-            temp_list.append(list_in[i])
-        else:
-            list_out.append(temp_list)
-            ind = i
-            temp_list = [list_in[i]]
-    list_out.append(temp_list)
-    return list_out
 
 
-# print(list_letters(list_in))
+

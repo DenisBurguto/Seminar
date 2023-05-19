@@ -72,10 +72,9 @@ def dic_phones(str_in):
 # Дан массив из нулей и единиц. Нужно определить, какой максимальный по длине подинтервал единиц можно получить, удалив ровно один элемент массива.
 # [1, 1, 0,1 ,0 ,1 , 1]
 def max_ones(in_list):
-    max_one = dict()
+    max_one = 0
     one = False
     start = 0
-    end = 0
     ind = 0
 
     for i in range(len(in_list)):
@@ -83,23 +82,69 @@ def max_ones(in_list):
             one = True
             start = i
         elif in_list[i] != 1 and one:
-            end = i
             one = False
-            max_one[ind] = end - start
+            if i - start > max_one:
+                max_one = i - start
             ind += 1
-            end = start = 0
-        if start != 0:
-            max_one[ind] = len(in_list) - start
-
+            start = i
+        if start != i:
+            max_one = len(in_list) - start
 
     print(max_one)
 
 
-max_ones([0,1, 1, 0, 1, 0, 0, 1, 0,1,1])
+# max_ones([0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1])
+
 # Задача 5.
 # Дан список интов, повторяющихся элементов в списке нет.
 # Нужно преобразовать это множество в строку, сворачивая соседние по числовому ряду числа в диапазоны.
 # Примеры:
 # [1,4,5,2,3,9,8,11,0] => "0-5,8-9,11"
 # ［1,4,3,2] => "1-4"
-# [1,4] => 11.4"
+# [1,4] => "1,4"
+
+set_in = {1, 4, 5, 2, 3, 9, 8, 11, 0}
+
+
+#
+# def task5(int_set):
+#     sort_list = sorted(list(int_set))
+#     out_list = " "
+#
+#     flag = False
+#     for i in range(len(sort_list) - 1):
+#         if sort_list[i] + 1 == sort_list[i + 1] and not flag:
+#             out_list += str(sort_list[i]) + "-"
+#             flag = True
+#         elif flag and sort_list[i] + 1 != sort_list[i + 1]:
+#             out_list += str(sort_list[i]) + ","
+#             flag = False
+#         elif not flag and sort_list[i] + 1 != sort_list[i + 1]:
+#             out_list += str(sort_list[i]) + ","
+#
+#     out_list += str(sort_list[-1])
+#
+#     print(out_list)
+#
+#
+# task5(set_in)
+
+def task5(int_set):
+    sorted_set = sorted(int_set)
+    ranges = []
+    start, end = sorted_set[0], sorted_set[0]
+    for num in sorted_set[1:]:
+        if num == end + 1:
+            end = num
+        else:
+            ranges.append((start, end))
+            print(ranges)
+            start = end = num
+    ranges.append((start, end))
+    print(ranges)
+
+    result = ','.join(str(start) if start == end else f'{start}-{end}' for start, end in ranges)
+    print(result)
+
+
+task5(set_in)

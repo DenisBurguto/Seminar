@@ -435,62 +435,62 @@ import random
 #
 # some_list = [1, 4, 5, 2, 3, 9, 8, 11, 0]
 # flage = True
-
-
-# определить простое число или нет рекурсией
-def simleornot(num, temp=None):
-    if temp == None:
-        temp = num ** 0.5
-        print(temp)
-    while temp >= 2:
-        if num % temp == 0:
-            return False
-        else:
-            return simleornot(num, temp - 1)
-    else:
-        return True
-
-
-print(simleornot(7))
-
-
-def prime(n, d=2):
-    if d * d >= n:
-        # print('prime number')
-        return True
-    elif n == 2:
-        return True
-    elif n % d == 0:
-        # print('not prime')
-        return False
-    else:
-        # print('prime')
-        return prime(n, d + 1)
-
-
-print(prime(57))
-
-
-# палиндром или нет рекурсией
 #
-def palindrome(str):
-    if len(str) < 1:
-        return True
-    else:
-        if str[0] == str[-1]:
-            return palindrome(str[1:-1])
-        else:
-            return False
-
-
-some_str = "абба"
-
-if palindrome(some_str):
-    print("Данная строка палиндром!")
-else:
-    print("Данная строка не палиндром!")
-
-
+#
+# # определить простое число или нет рекурсией
+# def simleornot(num, temp=None):
+#     if temp == None:
+#         temp = num ** 0.5
+#         print(temp)
+#     while temp >= 2:
+#         if num % temp == 0:
+#             return False
+#         else:
+#             return simleornot(num, temp - 1)
+#     else:
+#         return True
+#
+#
+# print(simleornot(7))
+#
+#
+# def prime(n, d=2):
+#     if d * d >= n:
+#         # print('prime number')
+#         return True
+#     elif n == 2:
+#         return True
+#     elif n % d == 0:
+#         # print('not prime')
+#         return False
+#     else:
+#         # print('prime')
+#         return prime(n, d + 1)
+#
+#
+# print(prime(57))
+#
+#
+# # палиндром или нет рекурсией
+# #
+# def palindrome(str):
+#     if len(str) < 1:
+#         return True
+#     else:
+#         if str[0] == str[-1]:
+#             return palindrome(str[1:-1])
+#         else:
+#             return False
+#
+#
+# some_str = "абба"
+#
+# if palindrome(some_str):
+#     print("Данная строка палиндром!")
+# else:
+#     print("Данная строка не палиндром!")
+#
+#
 
 # Задача No41. Решение в группах
 # Дан массив, состоящий из целых чисел. Напишите программу, которая в данном массиве определит количество элементов, у которых два соседних и, при этом, оба соседних элемента меньше данного. Сначала вводится число N — количество элементов в массиве Далее записаны N чисел — элементы массива. Массив состоит из целых чисел.
@@ -719,3 +719,110 @@ else:
 #         else:
 #             compressed.insert(0, (string[0], 1))
 #         return compressed
+
+
+# values = [1, 23, 42, 'asdfg']
+# transformation = lambda x: x
+#
+# transformed_values = list(map(transformation, values))
+# if values == transformed_values:
+#     print('ok')
+# else:
+#     print('fail')
+
+# Задача No49. Общее обсуждение
+# Планеты вращаются вокруг звезд по эллиптическим орбитам. Назовем самой далекой планетой ту, орбита которой имеет самую большую площадь.
+# Напишите функцию find_farthest_orbit(list_of_orbits), которая среди списка орбит планет найдет ту, по которой вращается самая далекая планета.
+# Круговые орбиты не учитывайте: вы знаете, что у вашей звезды таких планет нет, зато искусственные спутники были были запущены на круговые орбиты.
+# Результатом функции должен быть кортеж, содержащий длины полуосей эллипса орбиты самой далекой планеты. Каждая орбита представляет из себя кортеж из пары чисел
+# - полуосей ее эллипса. Площадь эллипса вычисляется по формуле S = pi*a*b, где a и b - длины полуосей эллипса. При решении задачи используйте списочные
+# выражения. Подсказка: проще всего будет найти эллипс в два шага: сначала вычислить самую большую площадь эллипса, а затем найти и сам эллипс, имеющий такую
+# площадь. Гарантируется, что самая далекая планета ровно одна
+
+#
+# def find_farthest_orbit(list_of_orbits):
+#     return max(list_of_orbits, key=lambda x: (x[0] != x[1]) * x[0] * x[1])
+#
+#
+# orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+#
+# print(*find_farthest_orbit(orbits))
+
+# Задача No51. Решение в группах
+# Напишите функцию same_by(characteristic, objects), которая проверяет, все ли объекты имеют одинаковое значение некоторой характеристики,
+# и возвращают True, если это так. Если значение характеристики для разных объектов отличается - то False. Для пустого набора объектов,
+# функция должна возвращать True. Аргумент characteristic - это функция, которая принимает объект и вычисляет его характеристику.
+# Ввод: Вывод:
+# values = [0, 2, 10, 6] same if same_by(lambda x: x % 2, values):
+# print(‘same’) else:
+# print(‘different’)
+
+def same_by(characteristic, objects):
+    return len(list(filter(characteristic, objects))) == len(objects)
+
+
+test_characteristic = lambda x: x % 2 == 0
+values = [0, 2, 101, 6]
+
+if same_by(test_characteristic, values):
+    print('same')
+else:
+    print('different')
+
+# def same_by(characteristic, objects):
+#     return len(list(filter(characteristic, objects))) == len(objects)
+
+# # def func(x):
+# #     return x % 2 == 0
+
+# function = lambda x: x % 2 == 0
+# values = [0, 2, 10, 6]
+
+# if same_by(function, values):
+#     print('same')
+# else:
+#     print('different')
+"""
+-----------------------------------
+"""
+# def test(x):
+#     def f(n):
+#         return n % x == 0
+#     return f
+
+# func = test(2)
+# print(func(8))
+
+"""
+-----------------------------------
+"""
+
+some_list = [1,2,3,4]
+other_list = ['a', 'b', 'c', 'd']
+
+dict01 = dict(zip(other_list, some_list))
+
+def func01(a, b, c, d):
+    return a + b + c + d
+
+# print(func01(**dict01))
+
+def func02(**kwargs):
+    print(kwargs)
+
+# func02(a=4, b=7, c=2)
+
+def func03(*args):
+    return sum(args)
+
+# print(func03(1,2,3,4,5))
+
+"""
+--------------- Defaultdict --------------------
+"""
+
+from collections import defaultdict
+
+d = defaultdict(int)
+d['a'] += 1
+print(d)

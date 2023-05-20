@@ -43,15 +43,12 @@
 
 
 def print_operation_table(operation, num_rows, num_columns):
-    rows = list(x for x in range(1, num_rows + 1))
-    columns = list(y for y in range(1, num_columns + 1))
-
-    for el in rows:
-        for tel in columns:
-            print(*list(map(operation, [el], [tel])), end=' ')
+    for x in range(1, num_rows + 1):
+        for y in range(1, num_columns + 1):
+            print(*list(map(operation, [x], [y])), end=' ')
         print()
 
 
-operation = lambda x, y: x*y
+operation = lambda x, y: x * y
 num_rows, num_columns = 6, 6
 print_operation_table(operation, num_rows, num_columns)

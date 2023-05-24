@@ -163,7 +163,6 @@
 
 import random
 
-
 # 13. 1. Уставшие от необычно теплой зимы, жители решили
 # узнать, действительно ли это самая длинная оттепель за
 # всю историю наблюдений за погодой. Они обратились к синоптикам,
@@ -757,17 +756,17 @@ import random
 # print(‘same’) else:
 # print(‘different’)
 
-def same_by(characteristic, objects):
-    return len(list(filter(characteristic, objects))) == len(objects)
-
-
-test_characteristic = lambda x: x % 2 == 0
-values = [0, 2, 101, 6]
-
-if same_by(test_characteristic, values):
-    print('same')
-else:
-    print('different')
+# def same_by(characteristic, objects):
+#     return len(list(filter(characteristic, objects))) == len(objects)
+#
+#
+# test_characteristic = lambda x: x % 2 == 0
+# values = [0, 2, 101, 6]
+#
+# if same_by(test_characteristic, values):
+#     print('same')
+# else:
+#     print('different')
 
 # def same_by(characteristic, objects):
 #     return len(list(filter(characteristic, objects))) == len(objects)
@@ -797,23 +796,27 @@ else:
 -----------------------------------
 """
 
-some_list = [1,2,3,4]
+some_list = [1, 2, 3, 4]
 other_list = ['a', 'b', 'c', 'd']
 
 dict01 = dict(zip(other_list, some_list))
 
+
 def func01(a, b, c, d):
     return a + b + c + d
+
 
 # print(func01(**dict01))
 
 def func02(**kwargs):
     print(kwargs)
 
+
 # func02(a=4, b=7, c=2)
 
 def func03(*args):
     return sum(args)
+
 
 # print(func03(1,2,3,4,5))
 
@@ -821,8 +824,102 @@ def func03(*args):
 --------------- Defaultdict --------------------
 """
 
-from collections import defaultdict
 
-d = defaultdict(int)
-d['a'] += 1
-print(d)
+# from collections import defaultdict
+#
+# d = defaultdict(int)
+# d['a'] += 1
+# print(d)
+# with open('example.txt', 'r', encoding='utf-8') as file:
+#     print(file)
+#     text = file.read()
+#     print(text)
+#     print(text.splitlines())
+#     line = file.readline()
+#     while line:
+#         print(line[:-1])
+#         line = file.readline()
+
+# with open('example.txt', 'w', encoding='utf-8') as file:
+#     some_list = ['hello', 'world', 'how', 'are', 'you']
+#     for el in some_list:
+#         file.write(el + '\n')
+
+# 1Пользователь вводит кол-во строк, затем сами строки. Нужно записать
+# в новый текстовый файл все эти строки
+#
+# line = int(input('enter lines quantity: '))
+# text = []
+# for i in range(line):
+#     text.append(input("enter line: "))
+#
+# with open('text.txt', 'w', encoding='utf-8') as file:
+#     for el in text:
+#         file.write(el + '\n')
+#
+# temp_symbol = input("please enter your symbol: ")
+#
+# with open('text.txt', 'r', encoding='utf-8') as file:
+#     text = file.read()
+#     print(text.count(temp_symbol))
+
+
+# 2Далее пользователь вводит символ, нужно найти кол-во этого символа в новом файле.
+
+# # Напишите функцию read_last(lines, file), которая будет открывать определенный
+# файл file и
+# # выводить на печать построчно последние строки в количестве lines
+# # (на всякий случай проверим, что задано положительное целое число).
+# # Протестируем функцию на файле «article.txt» со следующим содержимым:
+# #
+# # Вечерело
+# # Жужжали мухи
+# # Светил фонарик
+# # Кипела вода в чайнике
+# # Венера зажглась на небе
+# # Деревья шумели
+# # Тучи разошлись
+# # Листва зеленела
+#
+# def read_last(lines, file):
+#     with open(file, 'r', encoding='utf-8') as f:
+#         l = f.read().splitlines()
+#         for i in range(len(l) - lines, len(l)):
+#             print(l[i])
+#
+#
+# read_last(3, 'article.txt')
+
+#
+# # Документ «article.txt» содержит следующий текст:
+# #
+# # Вечерело
+# # Жужжали мухи
+# # Светил фонарик
+# # Кипела вода в чайнике
+# # Венера зажглась на небе
+# # Деревья шумели
+# # Тучи разошлись
+# # Листва зеленела
+# #
+# # Требуется реализовать функцию longest_words(file), которая выводит слово,
+# # имеющее максимальную длину (или список слов, если таковых несколько).
+
+def longest_words(file):
+    with open(file, 'r', encoding='utf-8') as f:
+        text = f.read().lower().split()
+        print(text)
+        max = 0
+
+        for i in range(len(text)):
+            if len(text[i]) > max:
+                max = i
+        newlist = []
+
+        for y in range(len(text)):
+            if len(text[y]) == len(text[max]):
+                newlist.append(text[y])
+        print(newlist)
+
+
+longest_words('article.txt')

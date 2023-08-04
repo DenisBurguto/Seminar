@@ -44,20 +44,20 @@
 # 5
 #     1 2 3 4 5
 #     6
-#     -> 5
-import random
-n = int(input('Please enter N - total quantity of elements in list: '))
-num_list = [random.randint(-10, 11) for _ in range(n)]
-x = random.randint(-10, 11)
-nearest = num_list[0]
-print(num_list[0], end=' ')
-for i in num_list[1:]:
-    print(i, end=' ')
-    if abs(nearest - x) > abs(i - x):
-        nearest = i
-print()
-print('tested X:', x)
-print('the closest element to X in our list is: ', nearest)
+# #     -> 5
+# import random
+# n = int(input('Please enter N - total quantity of elements in list: '))
+# num_list = [random.randint(-10, 11) for _ in range(n)]
+# x = random.randint(-10, 11)
+# nearest = num_list[0]
+# print(num_list[0], end=' ')
+# for i in num_list[1:]:
+#     print(i, end=' ')
+#     if abs(nearest - x) > abs(i - x):
+#         nearest = i
+# print()
+# print('tested X:', x)
+# print('the closest element to X in our list is: ', nearest)
 
 
 
@@ -81,7 +81,7 @@ scrabble_dict = {'A': 1, "E": 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1,
                  'С': 1, 'Т': 1, 'Д': 2, 'К': 2, 'Л': 2, 'М': 2, 'П': 2,
                  'У': 2, 'Б': 3, 'Г': 3, 'Ё': 3, 'Ь': 3, 'Я': 3, 'Й': 4,
                  'Ы': 4, 'Ж': 5, 'З': 5, 'Х': 5, 'Ц': 5, 'Ч': 5, 'Ш': 8,
-                 'Э': 8, 'Ю': 8, 'Ф': 10, 'Щ': 10, 'Ъ': 10}
+                 'Э': 8, 'Ю': 8, 'Ф': 10, 'Щ': 10, 'Ъ': 10, ' ': 0}
 user_word = input('please enter your word: ').upper()
 value = 0
 for letter in user_word:
